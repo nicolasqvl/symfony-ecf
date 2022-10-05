@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block title %}Page Produit{{parent()}}{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+        
+            <div class="col">
+				<img src="{{produit.image}}" alt="" class="img-fluid" style="max-width:450px">
+			</div>
+
+            <div class="col">
+				<h3>{{produit.nom}}</h3>
+                <p> Référence : {{produit.reference}}</p>
+                <p> Description : {{produit.descriptionLongue}}</p>
+
+                <form method="post" action="">
+                    <h4>Commander votre produit dès maintenant!</h4>
+                    <div class="col-3">
+                        <input type="number" name="quantite" class="form-control" id="quantity" value="1">
+                        <input type="hidden" name="produit" value="{{produit.id}}">
+                    </div>
+                    <div class="col">
+                        <input type="submit" name="ajout" class="btn btn-success" value="Ajouter au panier">
+                    </div>
+                </form>
+			</div>
+            
+        </div>
+    </div>
+
+
+{% endblock %}

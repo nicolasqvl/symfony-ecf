@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block title %}Accueil{{parent()}}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Ma Boutique Geek</h1>
+        </div>
+    </div> 
+</div>
+
+
+<div class="container d-flex">
+
+{% for produit in produits %}
+    <div class="row" style="height:300px;">
+        <div class="card col col-12 col-sm-10 col-md-3 ">
+            <img class="card-img-top" src="{{produit.image}}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{produit.nom}}</h5>
+            <p class="card-text">{{produit.descriptionCourte}}</p>
+            <h5 class="card-text">{{produit.tarif}}€</h5>
+            <a href="{{path('produit', {'id': produit.id, 'url':produit.nom|replace({' ':'-'})})}}"" class="btn btn-primary">Voir le produit</a>    
+        </div>
+    </div>
+{% endfor %}
+
+</div>
+
+
+{% endblock %}
+
